@@ -1277,8 +1277,8 @@
 
     .whatsapp-float {
       position: fixed;
-      right: 1rem;
-      bottom: 1rem;
+      right: calc(1rem + env(safe-area-inset-right));
+      bottom: calc(1rem + env(safe-area-inset-bottom));
       z-index: 9999;
       display: inline-flex;
       align-items: center;
@@ -1328,10 +1328,69 @@
       transform: translateY(-50%) translateX(0);
     }
 
+    .quote-float {
+      position: fixed;
+      left: calc(1rem + env(safe-area-inset-left));
+      bottom: calc(1rem + env(safe-area-inset-bottom));
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border-radius: var(--radius-full);
+      color: var(--color-white);
+      background: var(--color-electric-blue);
+      box-shadow: 0 12px 28px rgba(29,78,216,0.34);
+      animation: pulseBlue 2.8s infinite;
+      transition: var(--transition);
+    }
+
+    .quote-float svg {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    .quote-float::after {
+      content: "Get a free quote";
+      position: absolute;
+      left: calc(100% + 0.7rem);
+      top: 50%;
+      width: max-content;
+      max-width: 220px;
+      padding: 0.45rem 0.65rem;
+      border-radius: var(--radius-sm);
+      color: var(--color-white);
+      background: var(--color-rich-navy);
+      font-size: 0.82rem;
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-50%) translateX(-8px);
+      transition: var(--transition);
+    }
+
+    .quote-float:hover,
+    .quote-float:focus-visible {
+      transform: translateY(-3px);
+    }
+
+    .quote-float:hover::after,
+    .quote-float:focus-visible::after {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
     @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.46), 0 12px 28px rgba(37,211,102,0.34); }
       70% { box-shadow: 0 0 0 18px rgba(37,211,102,0), 0 12px 28px rgba(37,211,102,0.34); }
       100% { box-shadow: 0 0 0 0 rgba(37,211,102,0), 0 12px 28px rgba(37,211,102,0.34); }
+    }
+
+    @keyframes pulseBlue {
+      0% { box-shadow: 0 0 0 0 rgba(29,78,216,0.42), 0 12px 28px rgba(29,78,216,0.34); }
+      70% { box-shadow: 0 0 0 18px rgba(29,78,216,0), 0 12px 28px rgba(29,78,216,0.34); }
+      100% { box-shadow: 0 0 0 0 rgba(29,78,216,0), 0 12px 28px rgba(29,78,216,0.34); }
     }
 
     .site-footer {
@@ -1518,10 +1577,6 @@
         display: none;
       }
 
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
-      }
-
       .services-grid {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -1664,56 +1719,6 @@
           </div>
         </div>
 
-        <div class="form-card" data-aos="fade-left" data-aos-delay="300">
-          <h3>Get Your Free Quote</h3>
-          <p>We'll respond within 2 hours</p>
-          <form class="quote-form" novalidate>
-            <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="form-grid">
-              <div class="field">
-                <label for="hero-name">Full Name</label>
-                <input id="hero-name" name="name" type="text" autocomplete="name" required>
-                <span class="field-error">Please enter your full name.</span>
-              </div>
-              <div class="field">
-                <label for="hero-phone">Phone Number</label>
-                <input id="hero-phone" name="phone" type="tel" autocomplete="tel" required>
-                <span class="field-error">Please enter your phone number.</span>
-              </div>
-              <div class="field">
-                <label for="hero-email">Email Address</label>
-                <input id="hero-email" name="email" type="email" autocomplete="email" required>
-                <span class="field-error">Please enter a valid email address.</span>
-              </div>
-              <div class="field">
-                <label for="hero-service">Select Service</label>
-                <select id="hero-service" name="service" required>
-                  <option value="">-- Select a Service --</option>
-                  <option>Residential / House Cleaning</option>
-                  <option>Commercial / Office Cleaning</option>
-                  <option>End of Lease / Bond Cleaning</option>
-                  <option>Carpet Cleaning</option>
-                  <option>Window Cleaning</option>
-                  <option>Pressure Washing / Exterior</option>
-                  <option>Oven & Kitchen Deep Clean</option>
-                  <option>After Builder / Construction Clean</option>
-                </select>
-                <span class="field-error">Please select a service.</span>
-              </div>
-              <div class="field">
-                <label for="hero-message">Message / Additional Info</label>
-                <textarea id="hero-message" name="message" rows="3" required></textarea>
-                <span class="field-error">Please add a short message.</span>
-              </div>
-              <button class="btn btn-primary btn-full" type="submit">Request Free Quote <i data-lucide="arrow-right"></i></button>
-            </div>
-            <p class="form-note"><i data-lucide="lock"></i> Your information is safe with us. No spam, ever.</p>
-            <div class="form-success" role="status" aria-live="polite">
-              <i data-lucide="check-circle"></i>
-              Thanks! We'll be in touch within 2 hours.
-            </div>
-          </form>
-        </div>
       </div>
     </section>
 
@@ -2092,6 +2097,9 @@
     </div>
   </footer>
 
+  <a class="quote-float" href="#contact" aria-label="Jump to the free quote form">
+    <i data-lucide="clipboard-list"></i>
+  </a>
   <a class="whatsapp-float" data-whatsapp-link target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <i data-lucide="message-circle"></i>
   </a>

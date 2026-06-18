@@ -15,7 +15,7 @@
 
 # Key Components
 - Header/nav: sticky top navigation, desktop links, mobile menu toggle, call CTA, quote CTA.
-- Hero section: parallax background, animated headline, trust bullets, primary quote form, WhatsApp CTA.
+- Hero section: parallax background, animated headline, trust bullets, and WhatsApp CTA.
 - Services grid: 8 service cards covering residential, commercial, end-of-lease, carpet, window, pressure washing, oven/kitchen deep clean, and after-builder cleaning.
 - Realistic Results gallery: 5 proof cards based on real job photos.
 - Why NSN section: value cards for insurance/vetting, eco-friendly products, and satisfaction guarantee.
@@ -24,7 +24,7 @@
 - Areas section: Melbourne suburb coverage tags.
 - Contact section: contact details plus second quote form.
 - Footer: branding, quick links, service links, social links.
-- Floating elements: WhatsApp floating button and a one-time welcome popup.
+- Floating elements: always-visible quote button, WhatsApp floating button, and a one-time welcome popup.
 
 # Data Flow
 - `DOMContentLoaded` wires all `[data-whatsapp-link]` elements to a `wa.me` URL built from a hardcoded WhatsApp number and message.
@@ -33,7 +33,7 @@
   - nav scrolled/hidden state,
   - the scroll progress bar,
   - hero background parallax through a CSS variable.
-- `.quote-form` validation is client-side only:
+- `.quote-form` validation is client-side only in the contact section:
   - required controls are validated in the browser,
   - honeypot field `website` is ignored unless filled,
   - success message is shown locally,
@@ -101,3 +101,4 @@
 - Added NSN SVG brand assets plus a web manifest.
 - Updated `index.html` to use the NSN wordmark/icon and favicon links.
 - Updated page metadata and labels to NSN Property Cleaning.
+- Removed the hero quote form and replaced it with a fixed quote shortcut beside the WhatsApp button.
