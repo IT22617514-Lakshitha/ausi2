@@ -333,10 +333,6 @@
       backdrop-filter: blur(16px);
     }
 
-    .site-nav.nav-hidden {
-      transform: translateY(-110%);
-    }
-
     .nav-inner {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -624,6 +620,134 @@
       gap: 0.8rem;
     }
 
+    .hero-panel {
+      display: grid;
+      gap: 1rem;
+      align-self: stretch;
+    }
+
+    .hero-panel-card {
+      padding: clamp(1.1rem, 3vw, 1.5rem);
+      border: 1px solid rgba(226,232,240,0.16);
+      border-radius: var(--radius-xl);
+      color: var(--color-rich-navy);
+      background: rgba(248,250,252,0.96);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-panel-card h3 {
+      margin-bottom: 0.65rem;
+      color: inherit;
+      font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    }
+
+    .hero-panel-card p {
+      margin-bottom: 0;
+      color: rgba(15,23,42,0.7);
+    }
+
+    .hero-panel-featured {
+      color: var(--color-white);
+      background:
+        linear-gradient(135deg, rgba(15,23,42,0.96), rgba(29,78,216,0.88)),
+        linear-gradient(180deg, rgba(56,189,248,0.16), transparent);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .hero-panel-featured p {
+      color: rgba(248,250,252,0.82);
+    }
+
+    .hero-panel-badge {
+      margin-bottom: 0.95rem;
+    }
+
+    .hero-panel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .hero-panel-mini {
+      padding: 0.9rem 0.8rem;
+      border: 1px solid rgba(148,163,184,0.18);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.72);
+      text-align: center;
+    }
+
+    .hero-panel-mini strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--color-rich-navy);
+    }
+
+    .hero-panel-mini span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--color-slate);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .hero-quick-list {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-quick-list li {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      color: var(--color-white);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .hero-quick-list svg {
+      width: 1rem;
+      height: 1rem;
+      color: var(--color-success);
+      margin-top: 0.16rem;
+      flex: none;
+    }
+
+    .hero-panel-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .hero-panel-actions .btn {
+      flex: 1 1 180px;
+    }
+
+    .hero-service-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .hero-service-chips span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0.45rem 0.7rem;
+      border: 1px solid rgba(148,163,184,0.2);
+      border-radius: var(--radius-full);
+      color: var(--color-rich-navy);
+      background: rgba(255,255,255,0.82);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
     .form-card {
       width: 100%;
       padding: clamp(1.25rem, 4vw, 2rem);
@@ -895,6 +1019,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
+      grid-auto-flow: dense;
     }
 
     .proof-card {
@@ -1558,8 +1683,8 @@
       }
 
       .proof-card-large {
-        grid-column: span 1;
-        grid-row: span 1;
+        grid-column: span 2;
+        aspect-ratio: 16 / 9;
         min-height: 0;
       }
     }
@@ -1575,6 +1700,11 @@
 
       .mobile-menu {
         display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        align-items: start;
       }
 
       .services-grid {
@@ -1607,6 +1737,15 @@
 
       .hero-actions .btn {
         width: 100%;
+      }
+
+      .hero-panel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel-actions .btn {
+        width: 100%;
+        flex-basis: auto;
       }
 
       .hero-photo-bg {
@@ -1704,7 +1843,7 @@
         <div class="hero-copy" data-hero-copy>
           <span class="badge" data-aos="fade-in" data-aos-delay="0"><i data-lucide="sparkles"></i> Melbourne's Trusted Cleaning Experts</span>
           <h1 data-stagger-text>We Make Every Property Shine.</h1>
-          <p class="hero-subtitle">Professional cleaning services across Greater Melbourne. Residential, commercial, and specialist cleans - done right.</p>
+          <p class="hero-subtitle">One team for routine upkeep, end-of-lease resets, and inspection-ready finishes across Greater Melbourne.</p>
           <ul class="trust-strip" data-aos="fade-up" data-aos-delay="400">
             <li><i data-lucide="shield-check"></i> Fully Insured</li>
             <li><i data-lucide="star"></i> 5-Star Rated</li>
@@ -1713,11 +1852,51 @@
           </ul>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get Free Quote <i data-lucide="arrow-right"></i></a>
-            <a class="btn btn-whatsapp" data-whatsapp-link target="_blank" rel="noopener noreferrer">
-              <i data-lucide="message-circle"></i> WhatsApp Us
+            <a class="btn btn-secondary" href="#results">
+              See Results <i data-lucide="arrow-right"></i>
             </a>
           </div>
         </div>
+
+        <aside class="hero-panel" data-aos="fade-left" data-aos-delay="300" aria-label="Quick service snapshot">
+          <div class="hero-panel-card hero-panel-featured">
+            <span class="badge hero-panel-badge"><i data-lucide="clock-3"></i> Replies within 2 hours</span>
+            <h3>Built for busy homes, offices, and inspections.</h3>
+            <p>NSN keeps homes, workplaces, and rental properties clean, presentable, and ready for the next handover.</p>
+          </div>
+          <div class="hero-panel-grid">
+            <div class="hero-panel-mini">
+              <strong>500+</strong>
+              <span>Properties cleaned</span>
+            </div>
+            <div class="hero-panel-mini">
+              <strong>8</strong>
+              <span>Service types</span>
+            </div>
+            <div class="hero-panel-mini">
+              <strong>100%</strong>
+              <span>Guaranteed work</span>
+            </div>
+          </div>
+          <ul class="hero-quick-list">
+            <li><i data-lucide="shield-check"></i><span>Insured and vetted cleaners with consistent quality control.</span></li>
+            <li><i data-lucide="leaf"></i><span>Eco-friendly products that are safe for families and pets.</span></li>
+            <li><i data-lucide="map-pin"></i><span>Melbourne-wide coverage from the CBD to outer suburbs.</span></li>
+          </ul>
+          <div class="hero-panel-actions">
+            <a class="btn btn-primary" href="#contact">Book a quote <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn-secondary call-btn" href="tel:+61XXXXXXXXX" aria-label="Call NSN Property Cleaning">
+              <i data-lucide="phone"></i>
+              <span>Call Now</span>
+            </a>
+          </div>
+          <div class="hero-service-chips" aria-label="Popular services">
+            <span>Residential</span>
+            <span>Commercial</span>
+            <span>End of Lease</span>
+            <span>Windows</span>
+          </div>
+        </aside>
 
       </div>
     </section>
@@ -2139,7 +2318,6 @@
       var siteNav = document.getElementById('siteNav');
       var menuToggle = document.getElementById('menuToggle');
       var mobileMenu = document.getElementById('mobileMenu');
-      var lastScrollY = window.scrollY;
       var popup = document.getElementById('welcomePopup');
       var popupClose = document.getElementById('popupClose');
       var scrollProgress = document.querySelector('[data-scroll-progress]');
@@ -2203,12 +2381,6 @@
       function updateNav() {
         var currentY = window.scrollY;
         siteNav.classList.toggle('nav-scrolled', currentY > 24);
-        if (currentY > 220 && currentY > lastScrollY && !mobileMenu.classList.contains('nav-open')) {
-          siteNav.classList.add('nav-hidden');
-        } else {
-          siteNav.classList.remove('nav-hidden');
-        }
-        lastScrollY = Math.max(currentY, 0);
       }
 
       function updateScrollMotion() {

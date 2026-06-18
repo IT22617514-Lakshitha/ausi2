@@ -16,7 +16,7 @@
 
 # Key Components
 - Header/nav: sticky top navigation, desktop links, mobile menu toggle, call CTA, quote CTA.
-- Hero section: parallax background, animated headline, trust bullets, and WhatsApp CTA.
+- Hero section: parallax background, animated headline, trust bullets, CTA row, and a right-side service snapshot panel.
 - Services grid: 8 service cards covering residential, commercial, end-of-lease, carpet, window, pressure washing, oven/kitchen deep clean, and after-builder cleaning.
 - Realistic Results gallery: 5 proof cards based on real job photos.
 - Why NSN section: value cards for insurance/vetting, eco-friendly products, and satisfaction guarantee.
@@ -31,7 +31,7 @@
 - `DOMContentLoaded` wires all `[data-whatsapp-link]` elements to a `wa.me` URL built from a hardcoded WhatsApp number and message.
 - Hero heading words are split via `[data-stagger-text]` for staggered animation.
 - Scroll handling updates:
-  - nav scrolled/hidden state,
+  - nav scrolled state,
   - the scroll progress bar,
   - hero background parallax through a CSS variable.
 - `.quote-form` validation is client-side only in the contact section:
@@ -105,3 +105,4 @@
 - Updated page metadata and labels to NSN Property Cleaning.
 - Removed the hero quote form and replaced it with a fixed quote shortcut beside the WhatsApp button.
 - Added a GSAP skill pack under `skills/` with seven skill guides and an index file.
+- Reworked the homepage hero into a split-layout snapshot panel and simplified the sticky nav behavior.
