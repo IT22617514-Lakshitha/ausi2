@@ -2,6 +2,7 @@
 - Purpose: static marketing site for **NSN Property Cleaning** in Melbourne.
 - Main architecture: single-page static site in `index.html` with inline CSS and inline JavaScript.
 - Core technologies: HTML5, CSS3, vanilla JavaScript, Google Fonts, AOS animations, Lucide icons, Vercel static hosting.
+- UI direction: conversion-focused service landing page with strong hero CTA, floating contact shortcuts, animated proof sections, and image-led service cards.
 
 # Repository Structure
 - `index.html`: full page markup, styles, behavior, SEO metadata, JSON-LD, forms, and UI sections.
@@ -16,10 +17,10 @@
 
 # Key Components
 - Header/nav: sticky top navigation, desktop links, mobile menu toggle, call CTA, quote CTA.
-- Hero section: parallax background, animated headline, trust bullets, CTA row, and a right-side service snapshot panel.
-- Services grid: 8 service cards covering residential, commercial, end-of-lease, carpet, window, pressure washing, oven/kitchen deep clean, and after-builder cleaning.
-- Realistic Results gallery: 5 proof cards based on real job photos.
-- Why NSN section: value cards for insurance/vetting, eco-friendly products, and satisfaction guarantee.
+- Hero section: parallax background, animated headline, trust bullets, CTA row, and a right-side service snapshot panel with mini stats, quick benefits, and booking/call actions.
+- Services grid: 8 service cards covering residential, commercial, end-of-lease, carpet, window, pressure washing, oven/kitchen deep clean, and after-builder cleaning; the residential card is the featured editorial card.
+- Realistic Results gallery: 5 proof cards based on real job photos from `assets/images/real-results/`.
+- Why NSN section: split layout with a short narrative block plus value cards for insurance/vetting, eco-friendly products, and satisfaction guarantee.
 - Process section: 3-step quote-to-clean flow.
 - Stats section: animated counters and coverage summary.
 - Areas section: Melbourne suburb coverage tags.
@@ -96,6 +97,7 @@
 - `skills/` is documentation-only content; it does not affect the website runtime, but it matters for AI-agent workflow and GSAP guidance.
 - `vercel.json` and `_headers` should be kept in sync if security headers change.
 - The welcome popup uses `localStorage`; clearing site storage resets its one-time behavior.
+- Some service photos are reused across more than one service card; the results gallery is the part that is intentionally tied to real site photos.
 
 # Change Log Summary
 - Initial site build commit: `ff693a0` (`Build SNS Cleaning static website`).
@@ -106,3 +108,4 @@
 - Removed the hero quote form and replaced it with a fixed quote shortcut beside the WhatsApp button.
 - Added a GSAP skill pack under `skills/` with seven skill guides and an index file.
 - Reworked the homepage hero into a split-layout snapshot panel and simplified the sticky nav behavior.
+- Refined the homepage into a more editorial layout: featured service card, mosaic-style real-results gallery, split why-us story block, and persistent conversion buttons.

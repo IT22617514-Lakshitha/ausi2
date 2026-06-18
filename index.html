@@ -896,6 +896,31 @@
       padding: 1.35rem;
     }
 
+    .service-points {
+      display: grid;
+      gap: 0.65rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .service-points li {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      color: var(--color-slate);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .service-points svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      color: var(--color-success);
+      margin-top: 0.15rem;
+      flex: none;
+    }
+
     .service-photo {
       position: relative;
       aspect-ratio: 4 / 3;
@@ -983,6 +1008,10 @@
       transform: translateY(-3px) rotate(-4deg) scale(1.06);
     }
 
+    .service-card-featured {
+      background: linear-gradient(180deg, #FFFFFF, #F8FAFC);
+    }
+
     .image-reveal {
       clip-path: inset(0 0 18% 0 round 16px);
       opacity: 0;
@@ -1045,6 +1074,10 @@
       filter: saturate(1.08) contrast(1.03);
     }
 
+    .proof-card-tall {
+      aspect-ratio: 3 / 4;
+    }
+
     .proof-card::after {
       content: "";
       position: absolute;
@@ -1098,6 +1131,56 @@
       background:
         linear-gradient(135deg, rgba(29,78,216,0.18), transparent 38%),
         var(--color-rich-navy);
+    }
+
+    .why-layout {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .why-story {
+      padding: clamp(1.4rem, 3vw, 2rem);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04)),
+        rgba(255,255,255,0.03);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.16);
+    }
+
+    .why-story h3 {
+      margin-bottom: 0.85rem;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+    }
+
+    .why-story p {
+      color: rgba(226,232,240,0.76);
+      max-width: 54ch;
+    }
+
+    .why-story-list {
+      display: grid;
+      gap: 0.7rem;
+      margin: 1.1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .why-story-list li {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      color: rgba(248,250,252,0.88);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .why-story-list svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      color: var(--color-success);
+      margin-top: 0.15rem;
+      flex: none;
     }
 
     .value-grid {
@@ -1659,6 +1742,10 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
+      .why-layout {
+        grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+      }
+
       .steps-grid::before {
         content: "";
         position: absolute;
@@ -1687,6 +1774,11 @@
         aspect-ratio: 16 / 9;
         min-height: 0;
       }
+
+      .proof-card-tall {
+        grid-row: span 2;
+        min-height: 0;
+      }
     }
 
     @media (min-width: 1024px) {
@@ -1709,6 +1801,31 @@
 
       .services-grid {
         grid-template-columns: repeat(4, 1fr);
+      }
+
+      .service-card-featured {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        align-items: stretch;
+        min-height: 100%;
+        background: linear-gradient(180deg, #FFFFFF, #F8FBFF);
+      }
+
+      .service-card-featured .service-photo {
+        aspect-ratio: auto;
+        min-height: 100%;
+      }
+
+      .service-card-featured .service-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(1.4rem, 2.5vw, 2rem);
+      }
+
+      .service-card-featured .service-content h3 {
+        font-size: clamp(1.35rem, 2.4vw, 1.85rem);
       }
 
       .proof-card {
@@ -1905,18 +2022,23 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow" data-aos="fade-up">Our Services</span>
-          <h2 data-aos="fade-up" data-aos-delay="100">Everything Your Property Needs</h2>
-          <p data-aos="fade-up" data-aos-delay="200">From routine cleans to specialist services - we've got Melbourne covered.</p>
+          <h2 data-aos="fade-up" data-aos-delay="100">Cleaning services that match the job, the property, and the timeline.</h2>
+          <p data-aos="fade-up" data-aos-delay="200">Choose a service that fits how the space is actually used, then let us handle the details.</p>
         </div>
         <div class="services-grid">
-          <article class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <article class="service-card service-card-featured" data-aos="fade-up" data-aos-delay="0">
             <figure class="service-photo image-reveal">
               <img src="assets/images/residential-cleaning.jpg" alt="NSN cleaner vacuuming a bright Melbourne home living room" loading="lazy" decoding="async">
             </figure>
             <div class="service-content">
               <span class="service-icon"><i data-lucide="home"></i></span>
               <h3>Residential / House Cleaning</h3>
-              <p>Regular or one-off cleans for homes of all sizes across Melbourne.</p>
+              <p>Weekly, fortnightly, or one-off cleans built around kitchens, bathrooms, and living areas that actually get used.</p>
+              <ul class="service-points">
+                <li><i data-lucide="check"></i><span>Ongoing upkeep or one-time refreshes for busy households.</span></li>
+                <li><i data-lucide="check"></i><span>Tailored to homes, rentals, and family spaces.</span></li>
+                <li><i data-lucide="check"></i><span>Friendly cleaners with consistent standards.</span></li>
+              </ul>
             </div>
           </article>
           <article class="service-card" data-aos="fade-up" data-aos-delay="100">
@@ -1997,8 +2119,8 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow" data-aos="fade-up">Realistic Results</span>
-          <h2 data-aos="fade-up" data-aos-delay="100">Real Cleaning Results You Can See</h2>
-          <p data-aos="fade-up" data-aos-delay="200">Actual site photos from detailed glass, floor, bathroom and common-area cleaning work.</p>
+          <h2 data-aos="fade-up" data-aos-delay="100">Recent work from actual sites across Melbourne.</h2>
+          <p data-aos="fade-up" data-aos-delay="200">No stock photos here - just honest snapshots from glass, floor, and common-area cleaning jobs.</p>
         </div>
         <div class="proof-grid">
           <article class="proof-card proof-card-large image-reveal" data-aos="zoom-in-up" data-aos-delay="0" data-tilt>
@@ -2008,7 +2130,7 @@
               <h3>Window and glass cleaning with a proper wash-down finish.</h3>
             </div>
           </article>
-          <article class="proof-card image-reveal" data-aos="zoom-in-up" data-aos-delay="100" data-tilt>
+          <article class="proof-card proof-card-tall image-reveal" data-aos="zoom-in-up" data-aos-delay="100" data-tilt>
             <img src="assets/images/real-results/childcare-floor-clean-real-1.jpeg" alt="Polished childcare room floor after cleaning" loading="lazy" decoding="async">
             <div class="proof-content">
               <span class="proof-meta"><i data-lucide="building-2"></i> Common Areas</span>
@@ -2044,25 +2166,37 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow" data-aos="fade-up">Why NSN</span>
-          <h2 data-aos="fade-up" data-aos-delay="100">The NSN Difference</h2>
-          <p data-aos="fade-up" data-aos-delay="200">We're not just cleaners - we're professionals who take pride in every job.</p>
+          <h2 data-aos="fade-up" data-aos-delay="100">The standard people notice on the first visit.</h2>
+          <p data-aos="fade-up" data-aos-delay="200">Careful prep, clear communication, and a finish that still looks good after we leave.</p>
         </div>
-        <div class="value-grid">
-          <article class="value-card" data-aos="fade-up" data-aos-delay="0">
-            <span class="value-icon"><i data-lucide="shield-check"></i></span>
-            <h3>Fully Insured & Vetted</h3>
-            <p>Every NSN cleaner is background-checked, insured, and trained to our strict quality standards.</p>
-          </article>
-          <article class="value-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="value-icon"><i data-lucide="leaf"></i></span>
-            <h3>Eco-Friendly Products</h3>
-            <p>We use non-toxic, environmentally safe cleaning products - safe for your family, pets, and the planet.</p>
-          </article>
-          <article class="value-card" data-aos="fade-up" data-aos-delay="200">
-            <span class="value-icon"><i data-lucide="badge-check"></i></span>
-            <h3>100% Satisfaction Guaranteed</h3>
-            <p>Not happy? We come back and re-clean at no extra charge. Your satisfaction is our promise.</p>
-          </article>
+        <div class="why-layout">
+          <div class="why-story" data-aos="fade-up">
+            <span class="eyebrow">Built for repeat clients</span>
+            <h3>We keep the work simple: turn up prepared, clean carefully, and leave the property ready to use.</h3>
+            <p>That sounds basic, but it is the difference between a site that looks tidy for the photo and one that stays genuinely presentable after the team heads home.</p>
+            <ul class="why-story-list">
+              <li><i data-lucide="check"></i><span>Insured, vetted cleaners who work to a consistent standard.</span></li>
+              <li><i data-lucide="check"></i><span>Eco-friendly products that are safe for families and pets.</span></li>
+              <li><i data-lucide="check"></i><span>A satisfaction promise that keeps the finish accountable.</span></li>
+            </ul>
+          </div>
+          <div class="value-grid">
+            <article class="value-card" data-aos="fade-up" data-aos-delay="0">
+              <span class="value-icon"><i data-lucide="shield-check"></i></span>
+              <h3>Fully Insured & Vetted</h3>
+              <p>Every NSN cleaner is background-checked, insured, and trained to our strict quality standards.</p>
+            </article>
+            <article class="value-card" data-aos="fade-up" data-aos-delay="100">
+              <span class="value-icon"><i data-lucide="leaf"></i></span>
+              <h3>Eco-Friendly Products</h3>
+              <p>We use non-toxic, environmentally safe cleaning products - safe for your family, pets, and the planet.</p>
+            </article>
+            <article class="value-card" data-aos="fade-up" data-aos-delay="200">
+              <span class="value-icon"><i data-lucide="badge-check"></i></span>
+              <h3>100% Satisfaction Guaranteed</h3>
+              <p>Not happy? We come back and re-clean at no extra charge. Your satisfaction is our promise.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
