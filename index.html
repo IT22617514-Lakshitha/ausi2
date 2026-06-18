@@ -1277,17 +1277,17 @@
     }
 
     .stats {
-      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      padding: clamp(3rem, 6vw, 4.5rem) 0;
       color: var(--color-white);
-      background: linear-gradient(135deg, var(--color-electric-blue), #2563EB 48%, var(--color-sky-blue));
-      background-size: 180% 180%;
-      animation: statsFlow 10s ease infinite;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(56,189,248,0.14), transparent 24%),
+        linear-gradient(180deg, #0B1120, #111A30);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    @keyframes statsFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .stats .section-header {
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
     }
 
     .stats-grid {
@@ -1312,39 +1312,90 @@
       font-weight: 800;
     }
 
+    .stat {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 168px;
+      padding: 1.35rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.18);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56,189,248,0.3);
+      box-shadow: 0 26px 48px rgba(0,0,0,0.22);
+    }
+
     .areas {
       background:
         radial-gradient(circle at 12% 10%, rgba(56,189,248,0.14), transparent 24%),
         var(--color-rich-navy);
     }
 
-    .suburb-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.7rem;
-      margin-bottom: 2rem;
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
-    .suburb-tags span {
+    .coverage-card {
+      height: 100%;
+      padding: 1.35rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.045);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.14);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .coverage-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56,189,248,0.3);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+    }
+
+    .coverage-card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.1rem;
+    }
+
+    .coverage-card p {
+      margin-bottom: 0.95rem;
+      color: rgba(226,232,240,0.74);
+    }
+
+    .coverage-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .coverage-list li {
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      padding: 0.42rem 0.78rem;
-      border: 1px solid rgba(56,189,248,0.32);
+      min-height: 34px;
+      padding: 0.4rem 0.7rem;
+      border: 1px solid rgba(56,189,248,0.22);
       border-radius: var(--radius-full);
       color: var(--color-sky-blue);
       background: rgba(255,255,255,0.04);
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       font-weight: 800;
-      transition: var(--transition);
     }
 
-    .suburb-tags span:hover {
-      color: var(--color-white);
-      background: var(--color-electric-blue);
-      border-color: var(--color-electric-blue);
-      transform: translateY(-2px);
+    .coverage-note {
+      max-width: 760px;
+      margin: 1.4rem auto 2rem;
+      color: rgba(226,232,240,0.74);
+      text-align: center;
     }
 
     .areas-cta {
@@ -1751,10 +1802,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .stats-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
       .footer-grid {
         grid-template-columns: 1.2fr 1fr 1fr;
       }
@@ -1773,6 +1820,10 @@
       .value-grid,
       .steps-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .coverage-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .steps-grid::before {
@@ -1832,6 +1883,10 @@
         grid-template-columns: repeat(4, 1fr);
       }
 
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
       .service-card-featured {
         grid-column: span 2;
         display: grid;
@@ -1859,6 +1914,10 @@
 
       .proof-card {
         min-height: 0;
+      }
+
+      .coverage-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -2191,6 +2250,34 @@
       </div>
     </section>
 
+    <section class="stats dark" id="stats">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-aos="fade-up">At a glance</span>
+          <h2 data-aos="fade-up" data-aos-delay="100">A quick view of the scale behind the service.</h2>
+          <p data-aos="fade-up" data-aos-delay="200">Built to stay responsive for small jobs, regular upkeep, and larger site handovers across Melbourne.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat" data-aos="fade-up">
+            <strong><span data-counter="500">0</span>+</strong>
+            <span>Properties Cleaned</span>
+          </div>
+          <div class="stat" data-aos="fade-up" data-aos-delay="100">
+            <strong><span data-counter="8">0</span>+</strong>
+            <span>Services Offered</span>
+          </div>
+          <div class="stat" data-aos="fade-up" data-aos-delay="200">
+            <strong><span data-counter="100">0</span>%</strong>
+            <span>Satisfaction Guaranteed</span>
+          </div>
+          <div class="stat" data-aos="fade-up" data-aos-delay="300">
+            <strong>Melbourne</strong>
+            <span>Wide Coverage</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section dark why" id="why-us">
       <div class="container">
         <div class="section-header">
@@ -2233,9 +2320,9 @@
     <section class="section process" id="process">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow" data-aos="fade-up">The Process</span>
-          <h2 data-aos="fade-up" data-aos-delay="100">Getting Clean is Simple</h2>
-          <p data-aos="fade-up" data-aos-delay="200">Three easy steps to a sparkling property.</p>
+          <span class="eyebrow" data-aos="fade-up">How It Works</span>
+          <h2 data-aos="fade-up" data-aos-delay="100">A clear three-step process.</h2>
+          <p data-aos="fade-up" data-aos-delay="200">Straightforward from the first enquiry to the finished clean.</p>
         </div>
         <div class="steps-grid">
           <article class="step-card" data-aos="fade-up" data-aos-delay="0">
@@ -2260,46 +2347,83 @@
       </div>
     </section>
 
-    <section class="stats" id="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat" data-aos="fade-up">
-            <strong><span data-counter="500">0</span>+</strong>
-            <span>Properties Cleaned</span>
-          </div>
-          <div class="stat" data-aos="fade-up" data-aos-delay="100">
-            <strong><span data-counter="8">0</span>+</strong>
-            <span>Services Offered</span>
-          </div>
-          <div class="stat" data-aos="fade-up" data-aos-delay="200">
-            <strong><span data-counter="100">0</span>%</strong>
-            <span>Satisfaction Guaranteed</span>
-          </div>
-          <div class="stat" data-aos="fade-up" data-aos-delay="300">
-            <strong>Melbourne</strong>
-            <span>Wide Coverage</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section dark areas" id="areas">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow" data-aos="fade-up">Where We Work</span>
-          <h2 data-aos="fade-up" data-aos-delay="100">Cleaning Across Greater Melbourne</h2>
-          <p data-aos="fade-up" data-aos-delay="200">We service all Melbourne metro suburbs and surrounding areas.</p>
+          <h2 data-aos="fade-up" data-aos-delay="100">Service coverage across Greater Melbourne.</h2>
+          <p data-aos="fade-up" data-aos-delay="200">A clearer view of the suburbs we service most often, grouped by zone for easier scanning.</p>
         </div>
-        <div class="suburb-tags" data-aos="fade-up" data-aos-delay="250">
-          <span>Melbourne CBD</span><span>South Yarra</span><span>Toorak</span><span>St Kilda</span><span>Richmond</span><span>Fitzroy</span><span>Collingwood</span>
-          <span>Carlton</span><span>Prahran</span><span>Hawthorn</span><span>Camberwell</span><span>Box Hill</span><span>Doncaster</span><span>Ringwood</span>
-          <span>Dandenong</span><span>Frankston</span><span>Mornington</span><span>Werribee</span><span>Hoppers Crossing</span><span>Sunshine</span>
-          <span>Footscray</span><span>Williamstown</span><span>Altona</span><span>Point Cook</span><span>Cranbourne</span><span>Berwick</span><span>Pakenham</span>
-          <span>Oakleigh</span><span>Clayton</span><span>Caulfield</span><span>Glen Waverley</span><span>Knox</span><span>Boronia</span><span>Belgrave</span>
-          <span>Heidelberg</span><span>Preston</span><span>Bundoora</span><span>Epping</span><span>Whittlesea</span><span>Craigieburn</span><span>Sunbury</span>
+        <div class="coverage-grid">
+          <article class="coverage-card" data-aos="fade-up" data-aos-delay="0">
+            <h3>Inner Melbourne</h3>
+            <p>Fast-response areas close to the CBD and inner-ring suburbs.</p>
+            <ul class="coverage-list">
+              <li>Melbourne CBD</li>
+              <li>South Yarra</li>
+              <li>Toorak</li>
+              <li>St Kilda</li>
+              <li>Richmond</li>
+              <li>Fitzroy</li>
+              <li>Collingwood</li>
+              <li>Carlton</li>
+              <li>Prahran</li>
+            </ul>
+          </article>
+          <article class="coverage-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Eastern Suburbs</h3>
+            <p>Homes, offices, and sites across the eastern corridor.</p>
+            <ul class="coverage-list">
+              <li>Hawthorn</li>
+              <li>Camberwell</li>
+              <li>Box Hill</li>
+              <li>Doncaster</li>
+              <li>Ringwood</li>
+              <li>Glen Waverley</li>
+              <li>Knox</li>
+              <li>Boronia</li>
+              <li>Belgrave</li>
+            </ul>
+          </article>
+          <article class="coverage-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>South-East</h3>
+            <p>Reliable cleaning coverage across the south-east growth belt.</p>
+            <ul class="coverage-list">
+              <li>Dandenong</li>
+              <li>Frankston</li>
+              <li>Mornington</li>
+              <li>Oakleigh</li>
+              <li>Clayton</li>
+              <li>Caulfield</li>
+              <li>Cranbourne</li>
+              <li>Berwick</li>
+              <li>Pakenham</li>
+            </ul>
+          </article>
+          <article class="coverage-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>West & North</h3>
+            <p>Coverage for growth corridors, workplaces, and busy family homes.</p>
+            <ul class="coverage-list">
+              <li>Werribee</li>
+              <li>Hoppers Crossing</li>
+              <li>Sunshine</li>
+              <li>Footscray</li>
+              <li>Williamstown</li>
+              <li>Altona</li>
+              <li>Point Cook</li>
+              <li>Heidelberg</li>
+              <li>Preston</li>
+              <li>Bundoora</li>
+              <li>Epping</li>
+              <li>Whittlesea</li>
+              <li>Craigieburn</li>
+              <li>Sunbury</li>
+            </ul>
+          </article>
         </div>
-        <div class="areas-cta" data-aos="fade-up">
-          <a class="btn btn-primary" href="#contact">Contact Us - We Probably Cover It <i data-lucide="arrow-right"></i></a>
+        <p class="coverage-note" data-aos="fade-up" data-aos-delay="250">Need a suburb that is not listed? We still service much of the wider metro area, so get in touch and we will confirm availability.</p>
+        <div class="areas-cta" data-aos="fade-up" data-aos-delay="300">
+          <a class="btn btn-primary" href="#contact">Ask About Your Suburb <i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </section>

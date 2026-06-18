@@ -20,10 +20,10 @@
 - Hero section: parallax background, animated headline, trust bullets, CTA row, and a right-side service snapshot panel with mini stats, quick benefits, and booking/call actions.
 - Services grid: 8 service cards covering residential, commercial, end-of-lease, carpet, window, pressure washing, oven/kitchen deep clean, and after-builder cleaning; the residential card is the featured editorial card.
 - Realistic Results gallery: 5 proof cards based on real job photos from `assets/images/real-results/`.
+- Stats section: a full-width metrics band placed directly after the results gallery.
 - Why NSN section: full-width narrative block followed by a 3-card value grid for insurance/vetting, eco-friendly products, and satisfaction guarantee.
-- Process section: 3-step quote-to-clean flow.
-- Stats section: animated counters and coverage summary.
-- Areas section: Melbourne suburb coverage tags.
+- Process section: 3-step quote-to-clean flow under the "How It Works" heading.
+- Areas section: grouped coverage cards by Melbourne zone instead of a tag cloud.
 - Contact section: contact details plus second quote form.
 - Footer: branding, quick links, service links, social links.
 - Floating elements: always-visible quote button, WhatsApp floating button, and a one-time welcome popup.
@@ -111,3 +111,4 @@
 - Reworked the homepage hero into a split-layout snapshot panel and simplified the sticky nav behavior.
 - Refined the homepage into a more editorial layout: featured service card, mosaic-style real-results gallery, split why-us story block, and persistent conversion buttons.
 - Rebalanced the why-us section into a fuller-width story plus evenly spaced value cards, and added hover-grow motion to the main cards.
+- Reorganized the page flow so results lead into stats, then why/process, then grouped service-area cards for a cleaner service-site hierarchy.
