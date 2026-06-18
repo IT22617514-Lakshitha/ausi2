@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 212" fill="none" role="img" aria-label="NSN Property Cleaning">
+  <defs>
+    <linearGradient id="dropGrad" x1="182" y1="46" x2="182" y2="176" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 142L118 72l38 20 56-47 64 67 40-29 88 59" stroke="#1D4ED8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M144 126c0-22 16-50 38-80 22 30 38 58 38 80 0 24-17 44-38 44s-38-20-38-44Z" fill="url(#dropGrad)"/>
+  <path d="M170 113c0-10 5-22 12-31 5 7 9 16 9 26 0 9-4 17-11 17-6 0-10-5-10-12Z" fill="#fff" opacity=".9"/>
+  <text x="398" y="112" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="800" fill="#123C7A" letter-spacing="0">NSN</text>
+  <text x="399" y="163" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="500" fill="#1F4D8A" letter-spacing="1.2">PROPERTY CLEANING</text>
+</svg>
