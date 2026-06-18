@@ -20,7 +20,7 @@
 - Hero section: parallax background, animated headline, trust bullets, CTA row, and a right-side service snapshot panel with mini stats, quick benefits, and booking/call actions.
 - Services grid: 8 service cards covering residential, commercial, end-of-lease, carpet, window, pressure washing, oven/kitchen deep clean, and after-builder cleaning; the residential card is the featured editorial card.
 - Realistic Results gallery: 5 proof cards based on real job photos from `assets/images/real-results/`.
-- Why NSN section: split layout with a short narrative block plus value cards for insurance/vetting, eco-friendly products, and satisfaction guarantee.
+- Why NSN section: full-width narrative block followed by a 3-card value grid for insurance/vetting, eco-friendly products, and satisfaction guarantee.
 - Process section: 3-step quote-to-clean flow.
 - Stats section: animated counters and coverage summary.
 - Areas section: Melbourne suburb coverage tags.
@@ -88,6 +88,7 @@
 - Styling uses CSS custom properties and `clamp()` for responsive sizing.
 - Accessibility patterns include ARIA labels, `aria-live` success output, and Escape-key handling.
 - Motion-heavy effects are gated by `prefers-reduced-motion`.
+- Hover interactions now scale cards slightly on desktop for service, proof, value, and step sections.
 
 # Known Caveats
 - There is no backend form submission, email service, or database integration.
@@ -109,3 +110,4 @@
 - Added a GSAP skill pack under `skills/` with seven skill guides and an index file.
 - Reworked the homepage hero into a split-layout snapshot panel and simplified the sticky nav behavior.
 - Refined the homepage into a more editorial layout: featured service card, mosaic-style real-results gallery, split why-us story block, and persistent conversion buttons.
+- Rebalanced the why-us section into a fuller-width story plus evenly spaced value cards, and added hover-grow motion to the main cards.
