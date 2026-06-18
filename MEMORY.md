@@ -8,6 +8,7 @@
 - `assets/images/`: generated/curated service imagery used across the page.
 - `assets/images/real-results/`: on-site photos used in the "Realistic Results" gallery.
 - `assets/brand/`: brand assets, including current NSN SVG logo files and older SNS PNGs.
+- `skills/`: GSAP skill pack for AI agents; `skills/llms.txt` is the discovery index and each subfolder contains one `SKILL.md`.
 - `site.webmanifest`: PWA metadata and app icon definition.
 - `vercel.json`: Vercel security header configuration.
 - `_headers`: duplicate security header file in Netlify-style format.
@@ -92,6 +93,7 @@
 - Runtime depends on external CDNs for fonts, AOS, and Lucide.
 - Contact details and WhatsApp values still need real production values.
 - Legacy SNS PNG brand files remain in `assets/brand/` but are no longer referenced by the page.
+- `skills/` is documentation-only content; it does not affect the website runtime, but it matters for AI-agent workflow and GSAP guidance.
 - `vercel.json` and `_headers` should be kept in sync if security headers change.
 - The welcome popup uses `localStorage`; clearing site storage resets its one-time behavior.
 
@@ -102,3 +104,4 @@
 - Updated `index.html` to use the NSN wordmark/icon and favicon links.
 - Updated page metadata and labels to NSN Property Cleaning.
 - Removed the hero quote form and replaced it with a fixed quote shortcut beside the WhatsApp button.
+- Added a GSAP skill pack under `skills/` with seven skill guides and an index file.
